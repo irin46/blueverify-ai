@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Submit Claim | BlueVerify AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span class="logo-mark">B</span>
+            <span>BlueVerify AI</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#how-it-works">How it works</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Submit Section -->
+    <main>
+
+        <section class="submit-section">
+
+            <div class="submit-heading">
+
+                <p class="section-label">
+                    RESTORATION CLAIM
+                </p>
+
+                <h1>
+                    Submit your
+                    <span>restoration claim.</span>
+                </h1>
+
+                <p>
+                    Provide the details below. BlueVerify will analyze
+                    your submission for credibility, duplicate locations,
+                    and potential verification risks.
+                </p>
+
+            </div>
+
+
+            <!-- Form -->
+            <form id="claimForm" class="claim-form">
+
+
+                <!-- Organization -->
+                <div class="form-section">
+
+                    <div class="form-section-title">
+                        <span>01</span>
+                        Organization
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="submitter_name">
+                                Submitter Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="submitter_name"
+                                name="submitter_name"
+                                placeholder="e.g. Jane Doe"
+                                required
+                            >
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="org_name">
+                                Organization
+                            </label>
+
+                            <input
+                                type="text"
+                                id="org_name"
+                                name="org_name"
+                                placeholder="e.g. Green Earth NGO"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Location -->
+                <div class="form-section">
+
+                    <div class="form-section-title">
+                        <span>02</span>
+                        Location
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="location_name">
+                            Location Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="location_name"
+                            name="location_name"
+                            placeholder="e.g. Sundarbans Delta"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="latitude">
+                                Latitude
+                            </label>
+
+                            <input
+                                type="number"
+                                step="any"
+                                id="latitude"
+                                name="latitude"
+                                placeholder="e.g. 21.90"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="longitude">
+                                Longitude
+                            </label>
+
+                            <input
+                                type="number"
+                                step="any"
+                                id="longitude"
+                                name="longitude"
+                                placeholder="e.g. 89.20"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Restoration -->
+                <div class="form-section">
+
+                    <div class="form-section-title">
+                        <span>03</span>
+                        Restoration Details
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="ecosystem_type">
+                                Ecosystem Type
+                            </label>
+
+                            <select
+                                id="ecosystem_type"
+                                name="ecosystem_type"
+                                required
+                            >
+                                <option value="">
+                                    Select ecosystem
+                                </option>
+
+                                <option value="mangrove">
+                                    Mangrove
+                                </option>
+
+                                <option value="seagrass">
+                                    Seagrass
+                                </option>
+
+                                <option value="saltmarsh">
+                                    Saltmarsh
+                                </option>
+
+                                <option value="wetland">
+                                    Wetland
+                                </option>
+
+                                <option value="coral reef">
+                                    Coral Reef
+                                </option>
+
+                                <option value="other">
+                                    Other
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="area_hectares">
+                                Area (hectares)
+                            </label>
+
+                            <input
+                                type="number"
+                                step="any"
+                                min="0"
+                                id="area_hectares"
+                                name="area_hectares"
+                                placeholder="e.g. 120.5"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="start_date">
+                            Restoration Start Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="start_date"
+                            name="start_date"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Evidence -->
+                <div class="form-section">
+
+                    <div class="form-section-title">
+                        <span>04</span>
+                        Evidence
+                    </div>
+
+                    <div class="form-group">
+
+                        <label for="evidence_text">
+                            Evidence Description
+                        </label>
+
+                        <textarea
+                            id="evidence_text"
+                            name="evidence_text"
+                            rows="6"
+                            placeholder="Describe the evidence supporting this restoration claim..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Submit -->
+                <div class="form-submit">
+
+                    <div>
+                        <strong>Ready to verify?</strong>
+
+                        <p>
+                            BlueVerify will analyze your claim automatically.
+                        </p>
+                    </div>
+
+                    <button type="submit" class="primary-button">
+                        Verify Claim →
+                    </button>
+
+                </div>
+
+
+            </form>
+
+
+            <!-- Result -->
+            <div id="result" class="result-container">
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <span>© 2026 BlueVerify AI</span>
+
+        <span>
+            Environmental Verification Platform
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

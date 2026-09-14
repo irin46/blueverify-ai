@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | BlueVerify AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            <span class="logo-mark">B</span>
+            <span>BlueVerify AI</span>
+        </div>
+
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="submit.html">Submit Claim</a>
+        </div>
+
+    </nav>
+
+
+    <main>
+
+        <section class="admin-section">
+
+            <!-- Heading -->
+            <div class="admin-heading">
+
+                <div>
+                    <p class="section-label">
+                        ADMIN CONSOLE
+                    </p>
+
+                    <h1>
+                        Verification
+                        <span>overview.</span>
+                    </h1>
+                </div>
+
+                <div class="admin-status">
+                    <span></span>
+                    SYSTEM ONLINE
+                </div>
+
+            </div>
+
+
+           <!-- Statistics -->
+<div class="stats-grid">
+
+    <div class="stat-card">
+
+        <small>TOTAL SUBMISSIONS</small>
+
+        <strong id="totalSubmissions">
+            —
+        </strong>
+
+        <p>
+            All submitted claims
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <small>PENDING</small>
+
+        <strong id="pendingStatus">
+            —
+        </strong>
+
+        <p>
+            Awaiting admin review
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <small>VERIFIED</small>
+
+        <strong id="verifiedStatus">
+            —
+        </strong>
+
+        <p>
+            Accepted claims
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <small>NEEDS REVIEW</small>
+
+        <strong id="needsReviewStatus">
+            —
+        </strong>
+
+        <p>
+            Requires further investigation
+        </p>
+
+    </div>
+
+
+    <div class="stat-card">
+
+        <small>ESTIMATED CARBON</small>
+
+        <strong id="estimatedCarbon">
+            —
+        </strong>
+
+        <p>
+            Total estimated tCO₂e
+        </p>
+
+    </div>
+
+</div>
+
+            <!-- Submission Table -->
+            <div class="admin-table-card">
+                    <div class="table-header">
+                        <div>
+                            <p class="section-label">
+                                RECENT CLAIMS
+                            </p>
+
+                            <h2>
+                                Restoration submissions
+                            </h2>
+                        </div>
+
+
+                        <div class="table-controls">
+
+                            <select id="riskFilter" onchange="filterSubmissions()">
+
+                                <option value="All">
+                                    All Risks
+                                </option>
+
+                                <option value="Low">
+                                    Low Risk
+                                </option>
+
+                                <option value="Medium">
+                                    Medium Risk
+                                </option>
+
+                                <option value="High">
+                                    High Risk
+                                </option>
+
+                            </select>
+
+
+                            <select id="duplicateFilter" onchange="filterSubmissions()">
+
+                                <option value="All">
+                                    All Claims
+                                </option>
+
+                                <option value="Duplicate">
+                                    Duplicate Risk
+                                </option>
+
+                                <option value="Clear">
+                                    Clear
+                                </option>
+
+                            </select>
+
+
+                            <button
+                                onclick="loadSubmissions()"
+                                class="refresh-button"
+                            >
+                                ↻ Refresh
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                   
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>ID</th>
+                                <th>Organization</th>
+                                <th>Ecosystem</th>
+                                <th>Area</th>
+                                <th>Score</th>
+                                <th>NDVI</th>
+                                <th>Carbon (tCO₂e)</th>
+                                <th>Credits Released</th>
+                                <th>Credit Stage</th>
+                                <th>Risk</th>
+                                <th>Duplicate</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="submissionTable">
+
+                            <tr>
+                                <td colspan="9">
+                                    Loading submissions...
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+            <div id="claimDetails" class="claim-details">
+            </div>
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <span>© 2026 BlueVerify AI</span>
+
+        <span>
+            Environmental Verification Platform
+        </span>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
