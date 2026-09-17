@@ -1384,3 +1384,143 @@ if (submissionTable) {
     loadSubmissions();
 
 }
+/* =========================================================
+   VERDANT EDITORIAL MOTION
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const animatedElements = document.querySelectorAll(
+        ".bento-card, .stat-card, .about, .form-section, .result-box, .admin-table-card"
+    );
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+
+            entries.forEach((entry) => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("visible");
+
+                    observer.unobserve(entry.target);
+                }
+
+            });
+
+        },
+        {
+            threshold: 0.12
+        }
+    );
+
+    animatedElements.forEach((element) => {
+        element.classList.add("scroll-reveal");
+        observer.observe(element);
+    });
+
+
+    /* Subtle number animation for dashboard statistics */
+
+    function animateNumber(element, target) {
+
+        if (!element || isNaN(target)) {
+            return;
+        }
+
+        const duration = 700;
+        const start = performance.now();
+
+        function update(currentTime) {
+
+            const progress = Math.min(
+                (currentTime - start) / duration,
+                1
+            );
+
+            const eased =
+                1 - Math.pow(1 - progress, 3);
+
+            const value =
+                Math.floor(target * eased);
+
+            element.textContent = value.toLocaleString();
+
+            if (progress < 1) {
+                requestAnimationFrame(update);
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+
+    /* Animate statistics after dashboard loads */
+
+    const statsObserver = new MutationObserver(() => {
+
+        const total =
+            document.getElementById("totalSubmissions");
+
+        const pending =
+            document.getElementById("pendingStatus");
+
+        const verified =
+            document.getElementById("verifiedStatus");
+
+        const review =
+            document.getElementById("needsReviewStatus");
+
+
+        [
+            total,
+            pending,
+            verified,
+            review
+        ].forEach((element) => {
+
+            if (
+                element &&
+                !element.dataset.animated &&
+                element.textContent.trim() !== "—"
+            ) {
+
+                const value =
+                    parseInt(
+                        element.textContent.replace(/,/g, ""),
+                        10
+                    );
+
+                if (!isNaN(value)) {
+
+                    element.dataset.animated = "true";
+
+                    animateNumber(
+                        element,
+                        value
+                    );
+                }
+            }
+
+        });
+
+    });
+
+
+    const statsGrid =
+        document.querySelector(".stats-grid");
+
+    if (statsGrid) {
+
+        statsObserver.observe(
+            statsGrid,
+            {
+                childList: true,
+                subtree: true,
+                characterData: true
+            }
+        );
+
+    }
+
+});
